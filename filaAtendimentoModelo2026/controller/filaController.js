@@ -12,6 +12,7 @@ function adicionarElemento() {//interação direta com o html, por isso tem o fu
   } else {
     alert("Fila cheia!");
   }
+}
 
 
   function mostrarFila(){
@@ -20,8 +21,13 @@ function adicionarElemento() {//interação direta com o html, por isso tem o fu
   }
 
   function removerElemento(){
-    
-
+    let removido = minhaFila.dequeue();
+    if(removido===null)
+      alert("FILA VAZIA");
+    else {
+      alert("ATENDIDO "+removido);
+      mostrarFila(); 
+    }
   }
 
-}
+
