@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class App {
@@ -6,103 +5,47 @@ public class App {
      static Scanner leia = new Scanner(System.in);
 
     private static int menu() {
-        System.out.println("\n--- Menu Recorde ---");
-        System.out.println("1. Inserir recorde - Push");
-        System.out.println("2. Remover recorde - Pop");
-        System.out.println("3. Mostrar recorde - Peek");
-        System.out.println("4. Mostrar recordes - ToString");
+        System.out.println("\n--- Menu Pilha ---");
+        System.out.println("1. Inserir elemento - Push");
+        System.out.println("2. Remover elemento - Pop");
+        System.out.println("3. Mostrar topo - Peek");
+        System.out.println("4. Mostrar pilha");
         System.out.println("0. Sair");
         System.out.printf("Digite a opção desejada:" );
     	return leia.nextInt();
 	}
 
-    public static void main(String[] args) {
-        System.out.println("Digite o tamanho da pilha"); //Pergunte ao usuário o tamanho da pilha;
-        int tamanho = leia.nextInt();
-
-        Pilha<Recorde> minhaPilha = new Pilha<>(tamanho);
-
+    public static void main(String[] args) throws Exception {
+        PilhaEncadeada<Processo> minhaPilha = new PilhaEncadeada<>();
         int opcao = 0;
-
-        do {
-
+        Processo elemento;
+        do { 
             opcao = menu();
-            
-            switch (opcao) {
-                
-                case 1:
-
-                    leia.nextLine();
-
-                    System.out.println("Nome do atleta:");
-                    String nome = leia.nextLine();
-
-                    System.out.println("Tempo:");
-                    double tempo = leia.nextDouble();
-
-                    System.out.println("Ano:");
-                    int ano = leia.nextInt();
-
-                    System.out.println("Mês:");
-                    int mes = leia.nextInt();
-
-                    System.out.println("Dia:");
-                    int dia = leia.nextInt();
-
-                    LocalDate data = LocalDate.of(ano, mes, dia);
-
-                    Recorde novo = new Recorde(data, tempo, nome);
-
-                    Recorde atual = minhaPilha.peek();
-
-                    if (atual == null || novo.getTempo() < atual.getTempo()) {
-
-                        minhaPilha.push(novo);
-                        System.out.println("Novo recorde inserido!");
-
-                    } else {
-
-                        System.out.println("Tempo não supera o recorde atual!");
-
-                    }
-
+            switch(opcao){
+                case 1: System.out.println("Entre com uma string para inserir na pilha");
+                        leia.nextLine();// limpar o buffer
+                        String descricao = leia.nextLine();
+                        System.out.println("Entre com o tempo");
+                        double tempo = leia.nextDouble();
+                        elemento = new Processo(descricao, tempo);
+                        if( minhaPilha.push(elemento)) // ==true
+                            System.out.println("Dado inserido!");
+                        else
+                            System.out.println("Pilha cheia - Stack Overflow");
                 break;
-
-                case 2: 
-                    Recorde removido = minhaPilha.pop();
-
-                    if (removido != null) {
-                        System.out.println("Recorde removido: " + removido);
-                    } else {
-                        System.out.println("Pilha vazia!");
-                    }
-
-                break;
-
-                case 3:
-                        Recorde topo = minhaPilha.peek();
-
-                    if (topo != null) {
-                        System.out.println("Recorde atual:");
-                        System.out.println(topo);
-                    } else {
-                        System.out.println("Nenhum recorde na pilha.");
-                    }
-
-                break;
-
-                case 4: 
+                case 4: //for(Processo s: minhaPilha)
+                          //   System.out.println(s+"|");
+                    System.out.println("Pilha");
                     System.out.println(minhaPilha.toString());
-                    System.out.println("Quantidade de elementos na pilha: " + minhaPilha.size());
                 break;
-
-                case 0:
-                    System.out.println("Saindo...");
+                case 0: System.out.println("Saindo...");
                 break;
+            }// fim switch
+                
+            
+        } while (opcao!=0);
+            
+    
 
-            }// fim do switch
-
-
-        }while (opcao !=0);
     }
 }
