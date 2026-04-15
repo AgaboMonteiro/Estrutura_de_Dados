@@ -1,0 +1,50 @@
+<!-- painel de atendimento para exibir o último cliente atendido. Criar uma nova página chamada painel.html.-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #e9ecef;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #ultimoAtendimento {
+      font-size: 28px;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Último Atendimento</h1> <!--Um título principal "Último Atendimento".-->
+    <div id="ultimoAtendimento"> <!-- Um elemento de exibição (div) com o id="ultimoAtendimento", que inicialmente deve mostrar "Aguardando...". -->
+      Aguardando...
+    </div>
+  </div>
+
+    <script src="controller/painelController.js"></script> <!-- Esta página deve carregar e controlar suas ações usando o arquivo de script:  -->
+
+</body>
+</html>
+

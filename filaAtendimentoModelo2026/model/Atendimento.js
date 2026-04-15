@@ -1,3 +1,6 @@
+//Criar classe atendimento contendo (Nome, CPF, Data e Hora) dentro da pasta models.
+//Data e hora devem não devem ser inputs no html e sim a partir de funções de utils.js.
+
 class Atendimento {
     #nome;
     #cpf;
@@ -7,8 +10,7 @@ class Atendimento {
     constructor(nome, cpf) {
         this.#nome = nome;
         this.#cpf = cpf;
-
-        this.#data = obterDataAtual();
+        this.#data = data;
         this.#hora = obterHoraAtual();
     }
 
