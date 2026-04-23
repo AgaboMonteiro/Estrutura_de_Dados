@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="model/Fila.js"></script> 
+    <script src="model/No.js"></script> 
+    <script src="model/FilaEncadeada.js"></script> 
     <script src="model/Atendimento.js"></script> 
     <script src="utils.js"></script> <!-- tem q ser antes do controller pois é utilizado nele -->
     <script src="controller/filaController.js"></script>
@@ -33,7 +35,11 @@
         <!-- CPF -->
         <label for="txtnovoCpf">CPF:</label>
         <input type="text" class="form-control" id="txtnovoCpf" placeholder="Digite o CPF" />
+        <br />
 
+        <!-- Data de Nascimento -->
+        <label for="txtnovaData">Data de Nascimento:</label>
+        <input type="date" class="form-control" id="txtnovaData" placeholder="Digite a Data de Nascimento" />
         <br />
 
 
@@ -44,8 +50,11 @@
         <br />
       </div>
       <!-- Lista -->
-      <h2 id="lblPessoasFila">Dados da Fila</h2>
-      <ul id="listFila" class="list-group"></ul>
+      <h3>Fila Prioritária (60+ anos)</h3>
+      <ul id="listFilaPrioritaria" class="list-group"></ul>
+
+      <h3>Fila Normal</h3>
+      <ul id="listFilaNormal" class="list-group"></ul>
 
       <footer class="footer bg-success text-light text-center mt-5 py-3">
       <div class="container text-center">

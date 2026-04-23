@@ -4,14 +4,16 @@
 class Atendimento {
     #nome;
     #cpf;
+    #dataNascimento;
     #data;
     #hora;
 
-    constructor(nome, cpf) {
+    constructor(nome, cpf, dataNascimento, data, hora) {
         this.#nome = nome;
         this.#cpf = cpf;
+        this.#dataNascimento = dataNascimento;
         this.#data = data;
-        this.#hora = obterHoraAtual();
+        this.#hora = hora;
     }
 
     get nome() {
@@ -30,7 +32,11 @@ class Atendimento {
         return this.#hora;
     }
 
+     get dataNascimento() { 
+        return this.#dataNascimento; 
+    } 
+
     toString() {
-        return `${this.#nome} | CPF: ${this.#cpf} | Data: ${this.#data} | Hora: ${this.#hora}`;
+        return `${this.#nome} | CPF: ${this.#cpf} | Nasc: ${this.#dataNascimento} | Data: ${this.#data} | Hora: ${this.#hora}`;
     }
 }

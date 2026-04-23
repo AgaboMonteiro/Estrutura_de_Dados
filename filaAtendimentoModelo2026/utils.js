@@ -26,3 +26,24 @@ function calcularDiferencaHoras(hora1, hora2) {
     const segundos = diferencaSegundos % 60;
     return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 }
+
+// Função para calcular a idade
+function calcularIdade(dataNascimento) {
+    let dia, mes, ano;
+
+    if (dataNascimento.includes('-')) {
+        // Formato do input type="date": aaaa-mm-dd
+        [ano, mes, dia] = dataNascimento.split('-').map(Number);
+    } else {
+        // Formato manual: dd/mm/aaaa
+        [dia, mes, ano] = dataNascimento.split('/').map(Number);
+    }
+
+    const hoje = new Date();
+    let idade = hoje.getFullYear() - ano;
+    const mesAtual = hoje.getMonth() + 1;
+    if (mesAtual < mes || (mesAtual === mes && hoje.getDate() < dia)) {
+        idade--;
+    }
+    return idade;
+}

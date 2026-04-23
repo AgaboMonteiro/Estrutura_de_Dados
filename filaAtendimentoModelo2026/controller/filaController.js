@@ -1,41 +1,54 @@
 //arquivo de sript começa com letra minuscula
 
-const minhaFila = new Fila(5);
+const minhaFila = new FilaEncadeada();
+const filaPrioritaria = new FilaEncadeada();
+const filaNormal = new FilaEncadeada();
+let contadorPrioritaria = 0;
 
 function adicionarElemento() {//interação direta com o html, por isso tem o function, na classe não tem pois não existe essa interação
   const nome = document.getElementById("txtnovoNome");//colocando o nome no novoElemento
   const cpf = document.getElementById("txtnovoCpf");//ADD CPF
+  const dataNasc = document.getElementById("txtnovaData");
+  const data = obterDataAtual();
+  const hora = obterHoraAtual();
 
-  const novoAtendimento = new Atendimento(nome.value,cpf.value); //A inserção na fila deve ser de objetos do tipo atendimento
+  const idade = calcularIdade(dataNasc.value); // calcula a idade
 
-  const = data = obterDataAtual()
+  const novoAtendimento = new Atendimento(nome.value, cpf.value, dataNasc.value, data, hora); //A inserção na fila deve ser de objetos do tipo atendimento
 
-
-
-  if (minhaFila.enqueue(novoAtendimento)) {//se deu certo de inserir
-    mostrarFila(); //mostrar fila
-    nome.value = ""; 
-    nome.focus(); //clar imput
-    cpf.value = "";
+  if (idade >= 60) {
+        filaPrioritaria.enqueue(novoAtendimento); // fila prioritária
   } else {
-    alert("Fila cheia!");
+        filaNormal.enqueue(novoAtendimento);      // fila normal
   }
+  
+    mostrarFila();
+    nome.value = ""; cpf.value = ""; dataNasc.value = "";
+    nome.focus();
 }
 
 
-  function mostrarFila(){
-    const filaElemento = document.getElementById("listFila");
-    //filaElemento.textContent = minhaFila.toString();
-    filaElemento.innerHTML="";
-    for (let item of minhaFila) {
-    const li = document.createElement("li");
-    li.classList.add("list-group-item");
 
-    // AGORA MOSTRA OBJETO COMPLETO
-    li.textContent = item.toString();
+  function mostrarFila() {
+    // Exibe fila prioritária
+    const listaPrio = document.getElementById("listFilaPrioritaria");
+    listaPrio.innerHTML = "";
+    for (let item of filaPrioritaria) {
+        const li = document.createElement("li");
+        li.classList.add("list-group-item");
+        li.textContent = item.toString();
+        listaPrio.appendChild(li);
+    }
 
-    filaElemento.appendChild(li);
-  }
+    // Exibe fila normal
+    const listaNorm = document.getElementById("listFilaNormal");
+    listaNorm.innerHTML = "";
+    for (let item of filaNormal) {
+        const li = document.createElement("li");
+        li.classList.add("list-group-item");
+        li.textContent = item.toString();
+        listaNorm.appendChild(li);
+    }
 }
 
 
@@ -54,48 +67,57 @@ function adicionarElemento() {//interação direta com o html, por isso tem o fu
     //Atender pessoa, mostrar hora de entrada, saída e tempo de fila
 
   function removerElemento(){ //funcao remove elemento
-    let removido = minhaFila.dequeue(); //chama método dequeue, remove primeiro elemento
-    if(removido!==null){ //se a fila for diferente de nulo
+    let removido = null;
 
-      const mensagemRemocao = document.getElementById("mensagem-remocao");//busca o elemento html para mostrar a msg
-      const horaSaida = obterHoraAtual(); //obtem a hora atual do momento do atendimento
-      const tempoEspera = calcularDiferencaHoras(removido.hora, horaSaida); ////chama a funcao diferença de horas para calcular o tempo de espera
-      
-      const mensagem = `Atendido: ${removido.nome}`;//mensagem exibida no painel e salva localStorage
-      mostrarFila(); // Atualiza o label na tela; Apresentar pessoas na fila (Mostra o nome de todos da fila)
-
-      //Insere uma mensagem dinâmica no HTML
-      mensagemRemocao.textContent = (`Atendido: ${removido.nome}, Chegou ás ${removido.hora} está sendo atendido(a) às ${horaSaida}. Tempo de espera: ${tempoEspera}`)
-      
-      // Armazenar no localStorage para o painel. Chave: ultimoAtendimento, mensagem: mensagem
-      localStorage.setItem('ultimoAtendido', mensagem); //Ao remover uma pessoa da fila (no processo de atendimento, realizado no filaController.js), deve-se armazenar os dados do último atendido no localStorage.
-
+    // Regra: a cada 3 atendimentos prioritários, atende 1 normal
+    if (!filaPrioritaria.isEmpty() && contadorPrioritaria < 3) {
+        removido = filaPrioritaria.dequeue();
+        contadorPrioritaria++;
+    } else if (!filaNormal.isEmpty()) {
+        removido = filaNormal.dequeue();
+        contadorPrioritaria = 0; // reseta o contador
+    } else if (!filaPrioritaria.isEmpty()) {
+        // fila normal vazia, continua atendendo prioritária
+        removido = filaPrioritaria.dequeue();
+        contadorPrioritaria++;
     }
-    else {
-      alert("A fila já está vazia!");
+
+    if (removido !== null) {
+        const mensagemRemocao = document.getElementById("mensagem-remocao");
+        const horaSaida = obterHoraAtual();
+        const tempoEspera = calcularDiferencaHoras(removido.hora, horaSaida);
+
+        mensagemRemocao.textContent = `Atendido: ${removido.nome}, Chegou às ${removido.hora}, atendido às ${horaSaida}. Espera: ${tempoEspera}`;
+        localStorage.setItem('ultimoAtendido', `Atendido: ${removido.nome}`);
+        mostrarFila();
+    } else {
+        alert("As duas filas estão vazias!");
     }
-  }
+}
 
   function buscarElemento(){
     //pegar valor input
     const buscarElemento = document.getElementById("txtnovoCpf"); //Buscar por CPF
     let encontrado = false;
     let cont = 0;
-    for(let item of minhaFila){
+
+    for(let item of filaPrioritaria){
       cont ++;
       if(buscarElemento.value === item.cpf){
-          alert("Encontrado na fila na posição"+ cont);
+          alert(`Encontrado na Fila Prioritária, posição ${cont}`);
           encontrado = true;
         }
-      
     }
-    if(!encontrado)
-      alert ("Não encontrado na fila");
+    cont = 0;
+    for (let item of filaNormal) {
+        cont++;
+        if (buscarElemento === item.cpf) {
+            alert(`Encontrado na Fila Normal, posição ${cont}`);
+            encontrado = true;
+        }
+    }
 
-  }// fim busca
-
-  //nome
-  //cpf
-  //data e hora
+    if (!encontrado) alert("Não encontrado em nenhuma fila");
+}
   
 
