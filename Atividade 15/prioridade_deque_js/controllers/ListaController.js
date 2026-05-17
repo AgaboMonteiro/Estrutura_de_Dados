@@ -55,8 +55,20 @@ function tarefaMaisAntiga() {
 
 }
 //--------------------------------------------------------------------------------------------
+function mostrarPrimeiraTarefa() {
 
-/*Também foi necessário converter as prioridades para número usando parseInt(), 
+  if (minhaLista.isEmpty()) {
+    return alert("Lista de Tarefas Vazia");
+  }
+
+  alert(minhaLista.getFirst().toString());
+}
+
+//--------------------------------------------------------------------------------------------
+
+/*
+Inserir nova tarefa com prioridade
+Foi necessário converter as prioridades para número usando parseInt(), 
 porque os valores vindos do input HTML são textos (string). 
 Sem essa conversão, o JavaScript poderia comparar valores de forma incorreta.*/
 function adicionarPorPrioridade() {
@@ -108,15 +120,58 @@ function adicionarPorPrioridade() {
   atualizarLista(); //atualizar a interface após inserir uma tarefa.
   limpaInputs();
 }
+//--------------------------------------------------------------------------------------------*/
+
+function removerTarefaEspecifica() {
+
+  if (minhaLista.isEmpty()) {
+    return alert("Lista de Tarefas Vazia");
+  }
+
+  const indice = prompt("Digite o índice da tarefa:");
+
+  if (indice === null) return;
+
+  const tarefaRemovida = minhaLista.removeAtIndex(parseInt(indice));
+
+  if (tarefaRemovida === null) {
+    alert("Índice inválido!");
+    return;
+  }
+
+  atualizarLista();
+
+  alert("Tarefa removida:\n" + tarefaRemovida.toString());
+}
+
+
+
 //--------------------------------------------------------------------------------------------
 
 // Função para remover o primeiro elemento da lista
 function removerElementoInicio() {
   if (!minhaLista.isEmpty()) {
     const tarefaRealizada = minhaLista.removeFirst();
+    
+    const dias = calcularDiferencaDias(
+      tarefaRealizada.data,
+      obterDataAtual()
+    );
+
+    const horas = calcularDiferencaHoras(
+      tarefaRealizada.hora,
+      obterHoraAtual()
+    );
+
     mostrarMensagemRemocao(tarefaRealizada);
+
     atualizarLista();
-    alert("Removido com sucesso !");
+    alert(
+      "Tarefa removida!\n" +
+      "Tempo para conclusão:\n" +
+      dias + " dias\n" +
+      horas
+    );
   }
   else {
     alert("Lista de Tarefas Vazia");
@@ -153,9 +208,12 @@ function atualizarLista() {
   listaTarefas.innerHTML = "";    // limpar antes de mostrar
   if (!minhaLista.isEmpty()) {
     lblTarefas.innerHTML = "Lista de Tarefas";
+    let indice = 0;
+
     for (const tarefa of minhaLista) {
       const novaLinha = document.createElement("li");
-      novaLinha.innerHTML = tarefa;
+
+      novaLinha.innerHTML = "Índice Numero " + indice + " - " + tarefa;
       listaTarefas.appendChild(novaLinha);
     }
   }
