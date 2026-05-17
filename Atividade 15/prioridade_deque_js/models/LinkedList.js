@@ -151,7 +151,7 @@ class LinkedList {
         return null
     }
 
-    getFisrt(){
+    getFirst(){
         if(!this.isEmpty())
             return this.#head.dado;
         

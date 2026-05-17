@@ -101,3 +101,10 @@ function loadLinkedListFromLocalStorage() {
   }
 }
 //----------  ----------------------------------------------------------------------------------
+
+function isMenor(data1, hora1, data2, hora2) {
+  const dataHora1 = new Date(`${converterDataFormatoISO8601(data1)}T${hora1}`);
+  const dataHora2 = new Date(`${converterDataFormatoISO8601(data2)}T${hora2}`);
+  return dataHora1.getTime() < dataHora2.getTime();
+}
+

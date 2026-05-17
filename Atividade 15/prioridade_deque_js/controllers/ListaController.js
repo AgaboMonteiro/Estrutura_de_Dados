@@ -41,7 +41,19 @@ function adicionarIndice() {
 }
 //--------------------------------------------------------------------------------------------*/
 
+function tarefaMaisAntiga() {
+    if(minhaLista.isEmpty()){
+      return alert("Lista de Tarefas Vazia");
+    }
+    let tarefaAntiga = minhaLista.getFirst();
+    for (const tarefa of minhaLista) {
+      if (isMenor(tarefa.data, tarefa.hora,tarefaAntiga.data,tarefaAntiga.hora))
+        tarefaAntiga = tarefa;
+       // comprar a tarefaAntiga com cada tarefa usando a funcao acima
+    }      
+    alert("Tarefa mais antiga: " + tarefaAntiga.toString());
 
+}
 //--------------------------------------------------------------------------------------------
 
 /*Também foi necessário converter as prioridades para número usando parseInt(), 
