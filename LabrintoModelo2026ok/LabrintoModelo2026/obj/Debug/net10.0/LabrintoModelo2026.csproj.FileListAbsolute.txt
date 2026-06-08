@@ -1,0 +1,29 @@
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.exe
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.deps.json
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.runtimeconfig.json
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.dll
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.pdb
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.GeneratedMSBuildEditorConfig.editorconfig
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.AssemblyInfoInputs.cache
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.AssemblyInfo.cs
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.csproj.CoreCompileInputs.cache
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.dll
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\refint\LabrintoModelo2026.dll
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.pdb
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.genruntimeconfig.cache
+C:\mef\if\Estrutura de Dados I\Labirinto2026\LabrintoModelo2026\obj\Debug\net10.0\ref\LabrintoModelo2026.dll
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.exe
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.deps.json
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.runtimeconfig.json
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.dll
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\bin\Debug\net10.0\LabrintoModelo2026.pdb
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.AssemblyInfoInputs.cache
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.AssemblyInfo.cs
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.csproj.CoreCompileInputs.cache
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.sourcelink.json
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.dll
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\refint\LabrintoModelo2026.dll
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.pdb
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\LabrintoModelo2026.genruntimeconfig.cache
+C:\Users\agabo\Área de Trabalho\3 periodo\Estrutura de Dados I - Matheus Eloy\LabrintoModelo2026\obj\Debug\net10.0\ref\LabrintoModelo2026.dll
